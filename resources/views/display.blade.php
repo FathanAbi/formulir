@@ -21,7 +21,7 @@
                 <td>{{ $data->input1 }}</td>
                 <td>{{ $data->input2 }}</td>
                 <td>{{ $data->input3 }}</td>
-                <td><p>Image Path: {{ asset($data->image_path) }}</p></td>
+                <td><p>Image Path: {{ $data->image_path }}</p></td>
                 <td><img src="{{ asset($data->image_path) }}" alt="Image"></td>
                 <td>{{ $data->float_value }}</td>
             </tr>

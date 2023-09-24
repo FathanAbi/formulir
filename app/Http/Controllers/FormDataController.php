@@ -24,20 +24,24 @@ class FormDataController extends Controller
             'image' => 'required|image|mimes:jpg,jpeg,png',
             'float_value' => 'required|numeric|between:2.50,99.99',
         ]);
-
+    
         // Upload and store the image
         $imagePath = $request->file('image')->store('images');
-
+    
         // Store form data in the database
-        FormData::create([
+        $formData = FormData::create([
             'input1' => $request->input('input1'),
             'input2' => $request->input('input2'),
             'input3' => $request->input('input3'),
             'image_path' => $imagePath,
             'float_value' => $request->input('float_value'),
         ]);
-
-        return redirect('/')->with('success', 'Form data has been stored.');
+    
+        if ($formData) {
+            return redirect('/')->with('success', 'Succes.');
+        } else {
+            return redirect('/')->with('failed', 'Failed to store form data.');
+        }
     }
 
     public function display()

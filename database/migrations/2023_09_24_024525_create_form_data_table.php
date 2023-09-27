@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('input1');
             $table->string('input2');
             $table->string('input3');
-            $table->string('image_path');
+            $table->string('image_path')->default('');
             $table->float('float_value', 8, 2);
             $table->timestamps();
         });
